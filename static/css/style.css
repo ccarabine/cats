@@ -1,25 +1,41 @@
 
   body {
-      background: url('/media/background.jpg') no-repeat center center fixed;
+      background: url('../images/fur.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: grey;
-      font-family: 'Lato';
+      color: black;
+      font-family: 'Bellota';
   }
   
   a {
-    box-shadow: inset 0 0 0 0 #54b3d6;
-    color: grey;
-    margin: 0 -.25rem;
-    padding: 0 .25rem;
-    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+    color: black;
+    bottom: -3px; /* this is to match where the border is */
+    transform-origin: left; 
+    transform: scale(0);
+    transition: 0.25s linear;
   }
 
   a:hover {
-    box-shadow: inset 5000px 0 0 0 #54b3d6;
-    color: white;
+    color: #B5721C;
   }
 
   .paw-colour{
-    color:#54b3d6;
+    color:black;
   }
 
+  .bk-colour{
+    background-color: white;
+  }
+
+  .bk-header-colour{
+    background: url('../images/fur-mono2.jpg')no-repeat center fixed;
+    background-size: cover;
+    color:white;
+  }
+
+  .bk-desc-colour{
+    background: url('../images/white-fur.jpg')no-repeat center fixed;
+    background-size: cover;
+    color:black;
+  }
+  
+  
