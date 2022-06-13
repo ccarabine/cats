@@ -1,0 +1,12 @@
+{% load static %}
+
+<div class="jumbotron mx-2">
+  <h1 class="display-4">Something went wrong</h1>
+  <p class="lead">Server error - Try a bit later</p>
+  <p class="lead">{{e}}</p>
+  <hr class="my-4">
+  <p class="lead">
+    <a class="btn btn-secondary btn-lg" href="{% url 'index' %}"
+    role="button">Home page</a>
+  </p>
+</div>
