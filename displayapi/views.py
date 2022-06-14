@@ -26,7 +26,6 @@ def index(request):
         
         if request.method == "POST":
             breed = request.POST['breed']
-            print('here')
             for item in range(0, len(response)):
                 if breed == response[item]['name']:
                     name = response[item]['name']
