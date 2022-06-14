@@ -35,8 +35,9 @@
             {% csrf_token %}
             <h3 class="text-center mb-4 mt-0 bk-header-colour font-weight-bold">
                 <select name="breed" id="breed" class="my-3" place>
+                    <option value="" disabled selected hidden>Choose a breed</option>
                     {% for breed in response %}
-                        <option value="" disabled selected hidden>Choose a breed</option>
+                        
                         <option value="{{breed.name}}">{{breed.name}}</option>
                     {% endfor %}
                 </select>
