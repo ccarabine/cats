@@ -15,6 +15,19 @@ def error_500_view(request):
 
 
 def index(request):
+    """
+   Try:
+        gets the endpoint and puts the response into json
+        put min and max dates into variables into the context
+        gets the data from post when a user selects a breed
+        returns data in the context dictionary
+    Except:
+        return 500 error page
+    Args:
+        request (object): HTTP request object.
+    Returns:
+        Render data from the api in the context dictionary
+    """
     try:
         baseurl = 'https://api.thecatapi.com/'
         endpoint = 'v1/breeds'

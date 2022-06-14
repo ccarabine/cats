@@ -2,9 +2,8 @@
 <!DOCTYPE html>
 
 <html lang="en" class="h-100">
-
     <head>
-        <title>Cat API</title>
+        
         <!-- Google fonts -->
         
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,54 +34,58 @@
         <form id="form_cat" action="{% url 'index'%} " method="post">
             {% csrf_token %}
             <h3 class="text-center mb-4 mt-0 bk-header-colour font-weight-bold">
-                <label for="breed">Choose a breed:</label>
-                <select name="breed" id="breed" class="my-3">
+                <select name="breed" id="breed" class="my-3" place>
                     {% for breed in response %}
+                        <option value="" disabled selected hidden>Choose a breed</option>
                         <option value="{{breed.name}}">{{breed.name}}</option>
                     {% endfor %}
                 </select>
             </h3>
-            <div class="container">            
-                <div class="row">
-                    <div class="col-sm mb-4">
-                        <img src="{{ image_url }}" class="img-thumbnail rounded-circle border border-danger" alt="{{ name }} image" aria-label="{{ name }} image">
-                    </div>     
-                    <div class="col-sm bk-colour border rounded border-danger bk-desc-colour p-2 ">
-                       
-                        <h1 class = "text-center font-weight-bold">{{name}}</h1>    
-                            <table class = "mb-4">          
+            {% if breed %}
+                <div class="container">            
+                    <div class="row">
+                        <div class="col-md mb-4">
+                            <img src="{{ image_url }}" class="img-thumbnail rounded-circle border border-danger" alt="{{ name }} image" aria-label="{{ name }} image">
+                        </div>     
+                        <div class="col-md bk-colour border rounded border-danger bk-desc-colour p-2 ">
+                            <h1 class = "text-center font-weight-bold">{{name}}</h1>    
+                            <table>          
                                 <tr>
                                     <td class = "font-weight-bold">Affection rating   : </td>
                                     <td class = "font-weight-italic "><span class = "text-center font-weight-bold paw-colour" id="affection_level"></span>
                                     </td>
                                 </tr>
                             </table>
-                        <p class = "text-left">{{description}}</p>
-                        <table>       
-                            <tr>
-                                <td class = "text-left font-weight-bold">Temperament:</td>
-                                <td class= "font-weight-normal text-dark">{{temperament}}</td>
-                            </tr>
-                            <tr>
-                                <td class = "text-left font-weight-bold">Life span:</td>
-                                <td class= "font-weight-normal text-dark">{{life_span}} years</td>
-                            </tr>
-                          
-                            <tr>
-                                <td class = "text-left font-weight-bold">Origin:</td>
-                                <td class= "font-weight-normal text-dark">{{origin}}</td>
-                            </tr>
-                            <tr>
-                                <td class = "text-left font-weight-bold">Wikipedia url:</td>
-                                <td class= "font-weight-normal text-dark">
-                                    <a href="{{wikipedia_url}}" target="_blank" rel="noopener" aria-label="wikipedia url (opens a new tab)"><u>{{wikipedia_url}}</u></a>
-                                </td>
-                            </tr>
-                        </table>
-                      
-                    <div>
+                            <p class = "text-left">{{description}}</p>
+                            <table>       
+                                <tr>
+                                    <td class = "text-left font-weight-bold">Temperament:</td>
+                                    <td class= "font-weight-normal text-dark">{{temperament}}</td>
+                                </tr>
+                                <tr>
+                                    <td class = "text-left font-weight-bold">Life span:</td>
+                                    <td class= "font-weight-normal text-dark">{{life_span}} years</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td class = "text-left font-weight-bold">Origin:</td>
+                                    <td class= "font-weight-normal text-dark">{{origin}}</td>
+                                </tr>
+                                <tr>
+                                    <td class = "text-left font-weight-bold">Wikipedia url:</td>
+                                    <td class= "font-weight-normal text-dark">
+                                        <a href="{{wikipedia_url}}" target="_blank" rel="noopener" aria-label="wikipedia url (opens a new tab)"><u>Click here</u></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        <div>
+                    </div>
                 </div>
-            </div>
+            {% else %}
+                <div class = "text-center">
+                    <img src="https://cdn2.thecatapi.com/images/7isAO4Cav.jpg" class="img text-center rounded-circle border border-danger" alt="Cat hero image" aria-label="Cat hero image">
+                </div>
+            {% endif %}
         </form>   
         <!-- script js -->
         <script>
